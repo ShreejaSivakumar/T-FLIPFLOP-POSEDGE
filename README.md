@@ -1,5 +1,5 @@
 # T-FLIPFLOP-POSEDGE
-
+**DATE : 05/12/2025**
 **AIM:**
 
 To implement  T flipflop using verilog and validating their functionality using their functional tables
@@ -32,11 +32,45 @@ From the above characteristic table, we can directly write the next state equati
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+// T Flip-Flop (with async reset)
+------------------------------
+```
+module t_ff (
+    input  wire clk, rst, T,
+    output reg Q 	  
+);
+
+  initial begin
+     Q<=1'b0;
+	 end
+  
+  
+	 always @(posedge clk or posedge rst) begin
+	
+        if (rst)
+            Q <= 1'b0;       // Reset
+        else if (T)
+            Q <= ~Q;         // Toggle if T=1
+        else
+            Q <= Q;          // Hold if T=0
+    end
+endmodule
+```
+
+
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: SHREEJA R S
+RegisterNumber: 25017561
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+<img width="910" height="678" alt="Screenshot 2025-12-05 152721" src="https://github.com/user-attachments/assets/f8ce5754-14de-447f-bd99-21cce3163683" />
+
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+<img width="532" height="313" alt="Screenshot 2025-12-05 152754" src="https://github.com/user-attachments/assets/af697d1d-6627-4cfd-a0e9-be0ee05af660" />
+
+
 **RESULTS**
+      Thus the T flipflop using verilog and validating their functionality using their functional tables is implemented and verified
